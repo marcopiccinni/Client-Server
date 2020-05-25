@@ -17,22 +17,18 @@ using boost::asio::ip::tcp;
 class tcp_client {
 
 public:
-	tcp_client(){
-        try
-        {
-
+	tcp_client() {
+        try {
             boost::asio::io_context io_context;
 
             tcp::resolver resolver(io_context);
-            tcp::resolver::results_type endpoints =
-                //resolver.resolve(argv[1], "daytime");
-                resolver.resolve("localhost", "daytime");
+            //tcp::resolver::results_type endpoints = resolver.resolve("localhost", "daytime");
+            tcp::resolver::results_type endpoints = resolver.resolve("192.168.1.254", "daytime");
 
             tcp::socket socket(io_context);
             boost::asio::connect(socket, endpoints);
 
-            for (;;)
-            {
+            while (true) {
                 boost::array<char, 128> buf;
                 boost::system::error_code error;
 
@@ -46,8 +42,7 @@ public:
                 std::cout.write(buf.data(), len);
             }
         }
-        catch (std::exception& e)
-        {
+        catch (std::exception& e) {
             std::cerr << e.what() << std::endl;
         }
     }

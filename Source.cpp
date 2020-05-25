@@ -3,12 +3,7 @@
 #include <future>
 
 void server() {
-    try
-
-
-
-
-    {
+    try{
         boost::asio::io_context io_context;
         tcp_server server1(io_context);
         //udp_server server2(io_context);
@@ -32,7 +27,7 @@ int main()
 
     auto client = tcp_client();
 
-
-    exit(EXIT_SUCCESS);
+    
+    //exit(EXIT_SUCCESS);
     return 0;
 }
