@@ -18,15 +18,14 @@ void server() {
 int main()
 {
     auto server_ = std::async(std::launch::async, server);
-    Sleep(2000);
+
    /*if (argc != 2)
         {
             std::cerr << "Usage: client <host>" << std::endl;
             return 1;
         }*/
 
-    boost::asio::io_context io_context;
-    tcp_client client = tcp_client(io_context);
+    auto client = tcp_client();
 
     
     //exit(EXIT_SUCCESS);

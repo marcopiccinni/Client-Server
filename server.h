@@ -36,7 +36,10 @@ class tcp_connection :
 	std::string make_daytime_string() {
 		std::time_t now = time(0);
 		return std::ctime(&now);
+<<<<<<< HEAD
 
+=======
+>>>>>>> 5ed56816e4d6ec2c71b8f730cbe378d16c578af3
 	}
 public:
 	typedef boost::shared_ptr<tcp_connection> pointer;
